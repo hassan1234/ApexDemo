@@ -1,5 +1,3 @@
-import SectionHead from './SectionHead.jsx';
-
 const SERVICES = [
   {
     n: '01',
@@ -56,11 +54,10 @@ export default function Services() {
   return (
     <section id="services" className="services">
       <div className="services__inner">
-        <SectionHead
-          num="01 / SERVICES — WHAT WE DO"
-          title="Every site,"
-          lede="From careful restoration to full demolition — tailored to every client, every brief."
-        />
+        <div className="services__head">
+          <div className="services__eyebrow">01 / SERVICES — WHAT WE DO</div>
+          <p className="services__lede">From careful restoration to full demolition — tailored to every client, every brief.</p>
+        </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
             <article key={s.n} className="svc-card">

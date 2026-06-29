@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useScrollY } from './hooks.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
-import Marquee, { MiniTicker } from './components/Marquee.jsx';
 import Services from './components/Services.jsx';
 import Process from './components/Process.jsx';
 import Projects from './components/Projects.jsx';
@@ -23,7 +22,6 @@ const DEFAULTS = {
   accent: '#FF2A2A',
   showNoise: true,
   showScrollProgress: true,
-  showMarquee: true,
   heroVideo: '/assets/hero.mp4',
   heroVideoPoster: '/assets/hero-poster.jpg',
   heroVideoDark: true,
@@ -62,8 +60,6 @@ export default function App() {
         videoPoster={t.heroVideoPoster}
         videoDark={t.heroVideoDark}
       />
-      {t.showMarquee && <Marquee />}
-      <MiniTicker />
       <Services />
       <Process />
       <Projects />
@@ -103,11 +99,6 @@ export default function App() {
             label="Paper noise overlay"
             value={t.showNoise}
             onChange={(v) => setTweak('showNoise', v)}
-          />
-          <TweakToggle
-            label="Heavy marquee"
-            value={t.showMarquee}
-            onChange={(v) => setTweak('showMarquee', v)}
           />
         </TweakSection>
       </TweaksPanel>

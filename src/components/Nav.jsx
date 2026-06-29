@@ -12,6 +12,14 @@ const LINKS = [
 export default function Nav() {
   const y = useScrollY();
   const [active, setActive] = useState('top');
+  const [heroH, setHeroH] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const measure = () => setHeroH(window.innerHeight);
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
 
   useEffect(() => {
     const marker = window.innerHeight * 0.33;
@@ -28,8 +36,24 @@ export default function Nav() {
     setActive(current);
   }, [y]);
 
+  const scrolled = y > heroH * 0.75;
+
   return (
-    <nav className="nav">
+    <nav
+      className="nav"
+      style={
+        scrolled
+          ? {
+              background: 'rgba(236,233,230,0.96)',
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              color: 'var(--ink)',
+              mixBlendMode: 'normal',
+              borderBottom: '1px solid rgba(17,17,17,0.08)',
+            }
+          : {}
+      }
+    >
       <a href="#top" className="nav__brand" style={{ textDecoration: 'none', color: 'inherit' }}>
         <div>
           <div className="nav__brand-mark">
@@ -44,12 +68,17 @@ export default function Nav() {
             key={l.id}
             href={`#${l.id}`}
             className={`nav__link ${active === l.id ? 'is-active' : ''}`}
+            style={scrolled ? { color: 'var(--ink)' } : {}}
           >
             <span className="nav__dot" /> {l.label}
           </a>
         ))}
       </div>
-      <a href="#contact" className="nav__cta">
+      <a
+        href="#contact"
+        className="nav__cta"
+        style={scrolled ? { background: 'var(--ink)', color: 'var(--bone)' } : {}}
+      >
         Get a quote <span style={{ fontFamily: 'Oswald, sans-serif', fontSize: 14 }}>→</span>
       </a>
     </nav>
