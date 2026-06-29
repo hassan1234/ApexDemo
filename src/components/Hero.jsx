@@ -55,7 +55,7 @@ export default function Hero() {
             </span>
           ))}
         </div>
-        <div className="hero__cf-subtitle">Restoration &amp; Demolition</div>
+        <div className="hero__cf-subtitle">Demolition &amp; Restoration</div>
       </div>
 
       {/* Bottom bar */}

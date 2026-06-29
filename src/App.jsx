@@ -1,14 +1,14 @@
 // APEX — main app
 import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useScrollY } from './hooks.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Services from './components/Services.jsx';
-import Process from './components/Process.jsx';
-import Projects from './components/Projects.jsx';
 import Fleet from './components/Fleet.jsx';
-import Cta from './components/Cta.jsx';
 import Footer from './components/Footer.jsx';
+import ProjectsPage from './pages/ProjectsPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 import {
   TweaksPanel,
   TweakSection,
@@ -21,17 +21,11 @@ const DEFAULTS = {
   accent: '#FF2A2A',
   showNoise: true,
   showScrollProgress: true,
-
 };
 
-export default function App() {
-  const [t, setTweak] = useTweaks(DEFAULTS, 'apex.tweaks');
+function HomePage({ t, setTweak }) {
   const y = useScrollY();
   const docH = useRef(1);
-
-  useEffect(() => {
-    document.documentElement.style.setProperty('--red', t.accent);
-  }, [t.accent]);
 
   useEffect(() => {
     const recompute = () => {
@@ -50,15 +44,35 @@ export default function App() {
       {t.showScrollProgress && (
         <div className="scroll-progress" style={{ transform: `scaleX(${progress})` }} />
       )}
-
-      <Nav />
       <Hero />
       <Services />
-      <Process />
-      <Projects />
       <Fleet />
-      <Cta />
       <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  const [t, setTweak] = useTweaks(DEFAULTS, 'apex.tweaks');
+  const location = useLocation();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--red', t.accent);
+  }, [t.accent]);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return (
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<HomePage t={t} setTweak={setTweak} />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
 
       <TweaksPanel title="Tweaks">
         <TweakSection label="Brand">
