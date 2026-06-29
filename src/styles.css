@@ -61,7 +61,6 @@ input, textarea { cursor: text; }
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 18px 32px;
-  mix-blend-mode: difference;
   color: var(--bone);
   pointer-events: none;
 }
@@ -78,7 +77,7 @@ input, textarea { cursor: text; }
   display: inline-flex; align-items: center; gap: 8px;
   transition: background 200ms;
 }
-.nav__link:hover { background: rgba(255,255,255,0.12); }
+.nav__link:hover { background: rgba(255,255,255,0.22); }
 .nav__dot {
   width: 6px; height: 6px;
   border-radius: 50%;
@@ -107,100 +106,93 @@ input, textarea { cursor: text; }
 .nav__cta:hover { background: #ff4444; }
 @media (max-width: 900px) { .nav__links { display: none; } }
 
-/* HERO — crossfade */
+/* HERO — video + APEX logo */
 .hero--cf {
   position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   overflow: hidden;
   isolation: isolate;
   color: var(--bone);
 }
 
-/* Background image layers */
+/* Static image fallback */
 .hero__cf-bg {
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
   z-index: 0;
+  transition: opacity 600ms;
 }
 .hero__cf-before {
   background-image: url('/assets/hero-before.jpg');
-  /* Fallback while image loads */
-  background-color: #2a2520;
+  background-color: #1e1a17;
 }
-.hero__cf-after {
-  background-image: url('/assets/hero-after.jpg');
-  background-color: #e8e4df;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-.hero__cf-after.is-visible { opacity: 1; }
+.hero__cf-bg--hidden { opacity: 0; pointer-events: none; }
 
-/* Gradient scrim — bottom-heavy so content is always readable */
+/* Video */
+.hero__cf-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 800ms ease-out;
+  pointer-events: none;
+}
+.hero__cf-video.is-ready { opacity: 1; }
+
+/* Scrim */
 .hero__cf-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(
-    to top,
-    rgba(10,8,6,0.82) 0%,
-    rgba(10,8,6,0.45) 45%,
-    rgba(10,8,6,0.18) 100%
+    160deg,
+    rgba(10,8,6,0.55) 0%,
+    rgba(10,8,6,0.35) 50%,
+    rgba(10,8,6,0.7) 100%
   );
 }
 
-/* State indicator */
-.hero__cf-indicator {
-  position: absolute;
-  top: 112px; right: 32px;
-  z-index: 3;
-  display: flex; align-items: center; gap: 12px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(236,233,230,0.4);
+/* APEX logo — centred */
+.hero__cf-logo {
+  position: relative; z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 48px;
 }
-.hero__cf-indicator span { transition: color 600ms; }
-.hero__cf-indicator span.is-on { color: var(--red); }
-.hero__cf-indicator-sep {
-  width: 24px; height: 1px;
-  background: rgba(236,233,230,0.25);
-  display: block;
+.hero__cf-type {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(100px, 22vw, 380px);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.hero__cf-letter {
+  display: inline-block;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 600ms;
+  will-change: transform;
+}
+.hero__cf-subtitle {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: clamp(11px, 1.2vw, 15px);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(236,233,230,0.65);
+  margin-top: 16px;
 }
 
-/* Content */
-.hero__cf-content {
+/* Bottom bar */
+.hero__cf-bottom {
   position: relative; z-index: 2;
-  padding: 0 56px 72px;
-  max-width: 860px;
-}
-.hero__cf-eyebrow {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: rgba(236,233,230,0.5);
-  margin-bottom: 24px;
-}
-.hero__cf-headline {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  font-size: clamp(48px, 7vw, 112px);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  color: var(--bone);
-  margin-bottom: 24px;
-}
-.hero__cf-headline em {
-  font-style: normal;
-  color: var(--red);
-}
-.hero__cf-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: clamp(14px, 1.4vw, 18px);
-  line-height: 1.6;
-  color: rgba(236,233,230,0.7);
-  max-width: 480px;
-  margin-bottom: 40px;
+  padding: 0 48px 48px;
+  display: flex;
+  justify-content: flex-end;
 }
 .hero__cf-btn {
   display: inline-flex; align-items: center; gap: 12px;
@@ -217,8 +209,8 @@ input, textarea { cursor: text; }
 .hero__cf-btn span { font-family: 'Oswald', sans-serif; font-size: 16px; }
 
 @media (max-width: 720px) {
-  .hero__cf-content { padding: 0 24px 56px; }
-  .hero__cf-indicator { top: 88px; right: 24px; }
+  .hero__cf-logo { padding: 0 24px; }
+  .hero__cf-bottom { padding: 0 24px 40px; justify-content: flex-start; }
 }
 
 @keyframes marqueeRoll {
