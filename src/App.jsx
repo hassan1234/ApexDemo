@@ -22,9 +22,9 @@ const DEFAULTS = {
   accent: '#FF2A2A',
   showNoise: true,
   showScrollProgress: true,
-  heroVideo: '/assets/hero.mp4',
-  heroVideoPoster: '/assets/hero-poster.jpg',
-  heroVideoDark: true,
+  heroVideo: '',
+  heroVideoPoster: '',
+  heroVideoDark: false,
 };
 
 export default function App() {
