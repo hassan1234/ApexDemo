@@ -59,7 +59,7 @@ export default function Nav() {
           <div className="nav__brand-mark">
             APEX<span style={{ color: 'var(--red)' }}>.</span>
           </div>
-          <div className="nav__brand-sub">RESTORATION & DEMOLITION / DMV</div>
+          <div className="nav__brand-sub">RESTORATION & DEMOLITION</div>
         </div>
       </a>
       <div className="nav__links">

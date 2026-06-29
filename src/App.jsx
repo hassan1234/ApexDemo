@@ -13,7 +13,6 @@ import {
   TweaksPanel,
   TweakSection,
   TweakColor,
-  TweakText,
   TweakToggle,
   useTweaks,
 } from './components/TweaksPanel.jsx';
@@ -22,9 +21,7 @@ const DEFAULTS = {
   accent: '#FF2A2A',
   showNoise: true,
   showScrollProgress: true,
-  heroVideo: '',
-  heroVideoPoster: '',
-  heroVideoDark: false,
+
 };
 
 export default function App() {
@@ -55,11 +52,7 @@ export default function App() {
       )}
 
       <Nav />
-      <Hero
-        videoSrc={t.heroVideo}
-        videoPoster={t.heroVideoPoster}
-        videoDark={t.heroVideoDark}
-      />
+      <Hero />
       <Services />
       <Process />
       <Projects />
@@ -74,19 +67,6 @@ export default function App() {
             value={t.accent}
             options={['#FF2A2A', '#FF6B00', '#D7F500', '#00C2FF', '#FFFFFF']}
             onChange={(v) => setTweak('accent', v)}
-          />
-        </TweakSection>
-        <TweakSection label="Hero">
-          <TweakText
-            label="Video URL (mp4/webm)"
-            value={t.heroVideo}
-            onChange={(v) => setTweak('heroVideo', v)}
-            placeholder="/assets/hero.mp4"
-          />
-          <TweakToggle
-            label="Dark scrim (for light video)"
-            value={t.heroVideoDark}
-            onChange={(v) => setTweak('heroVideoDark', v)}
           />
         </TweakSection>
         <TweakSection label="Scroll FX">
