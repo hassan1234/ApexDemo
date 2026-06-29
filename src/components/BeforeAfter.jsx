@@ -18,9 +18,7 @@ export default function BeforeAfter() {
       const x = e.touches ? e.touches[0].clientX : e.clientX;
       updateFromX(x);
     };
-    const onUp = () => {
-      dragging.current = false;
-    };
+    const onUp = () => { dragging.current = false; };
     window.addEventListener('mousemove', onMove);
     window.addEventListener('touchmove', onMove);
     window.addEventListener('mouseup', onUp);
@@ -37,40 +35,30 @@ export default function BeforeAfter() {
     <div
       className="beforeafter"
       ref={wrapRef}
-      onMouseDown={(e) => {
-        dragging.current = true;
-        updateFromX(e.clientX);
-      }}
-      onTouchStart={(e) => {
-        dragging.current = true;
-        updateFromX(e.touches[0].clientX);
-      }}
+      onMouseDown={(e) => { dragging.current = true; updateFromX(e.clientX); }}
+      onTouchStart={(e) => { dragging.current = true; updateFromX(e.touches[0].clientX); }}
     >
+      {/* AFTER layer (base) */}
       <div className="beforeafter__layer beforeafter__after">
-        <div className="beforeafter__label" style={{ right: 24, color: 'var(--ink)' }}>
+        <img src="/assets/ba-after.jpg" alt="After — Clean grade" className="beforeafter__photo" />
+        <div className="beforeafter__label" style={{ right: 24, color: 'var(--bone)' }}>
           AFTER — CLEAN GRADE
         </div>
-        <div className="beforeafter__center" style={{ color: 'var(--ink)' }}>
-          CLEANER
-          <br />
-          FUTURE
-        </div>
       </div>
+
+      {/* BEFORE layer (clipped left) */}
       <div className="beforeafter__layer-clip" style={{ width: `${pos}%` }}>
         <div
           className="beforeafter__layer beforeafter__before"
           style={{ width: `${100 / (pos / 100)}%` }}
         >
+          <img src="/assets/ba-before.jpg" alt="Before — Standing structure" className="beforeafter__photo" />
           <div className="beforeafter__label" style={{ left: 24, color: 'var(--bone)' }}>
             BEFORE — STANDING
           </div>
-          <div className="beforeafter__center" style={{ color: 'var(--bone)' }}>
-            STANDING
-            <br />
-            STRUCTURE
-          </div>
         </div>
       </div>
+
       <div className="beforeafter__handle" style={{ left: `${pos}%` }} />
     </div>
   );
