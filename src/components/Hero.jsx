@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useScrollY } from '../hooks.jsx';
 
-export default function Hero({ accent, videoSrc, videoPoster, videoDark }) {
+export default function Hero({ videoSrc, videoPoster, videoDark }) {
   const y = useScrollY();
   const videoRef = useRef(null);
   const [videoOk, setVideoOk] = useState(false);
@@ -16,18 +16,18 @@ export default function Hero({ accent, videoSrc, videoPoster, videoDark }) {
   const dust = useRef(null);
   useEffect(() => {
     if (!dust.current) return;
-    const N = 60;
+    const N = 20;
     dust.current.innerHTML = '';
     for (let i = 0; i < N; i++) {
       const p = document.createElement('div');
       p.className = 'dust-particle';
-      const size = 1 + Math.random() * 4;
+      const size = 1 + Math.random() * 3;
       p.style.width = `${size}px`;
       p.style.height = `${size}px`;
       p.style.left = `${Math.random() * 100}%`;
       p.style.top = `${Math.random() * 100}%`;
-      p.dataset.speed = (0.1 + Math.random() * 0.5).toString();
-      p.dataset.drift = (Math.random() * 60 - 30).toString();
+      p.dataset.speed = (0.05 + Math.random() * 0.2).toString();
+      p.dataset.drift = (Math.random() * 40 - 20).toString();
       dust.current.appendChild(p);
     }
   }, []);
@@ -38,7 +38,7 @@ export default function Hero({ accent, videoSrc, videoPoster, videoDark }) {
     particles.forEach((p) => {
       const speed = parseFloat(p.dataset.speed);
       const drift = parseFloat(p.dataset.drift);
-      p.style.transform = `translate(${y * 0.02 * drift}px, ${y * speed}px)`;
+      p.style.transform = `translate(${y * 0.01 * drift}px, ${y * speed}px)`;
     });
   }, [y]);
 
@@ -80,10 +80,10 @@ export default function Hero({ accent, videoSrc, videoPoster, videoDark }) {
               key={i}
               className="hero__letter"
               style={{
-                color: accent,
+                color: l === '.' ? 'var(--red)' : 'var(--bone)',
                 transform: reveal
                   ? `translateY(0) rotate(0deg)`
-                  : `translateY(${20 + i * 8}vh) rotate(${(i - 2) * 6}deg)`,
+                  : `translateY(${20 + i * 8}vh) rotate(${(i - 2) * 4}deg)`,
                 opacity: reveal ? 1 : 0,
                 transitionDelay: `${i * 90}ms`,
               }}
@@ -92,33 +92,20 @@ export default function Hero({ accent, videoSrc, videoPoster, videoDark }) {
             </span>
           ))}
         </div>
+        <div className="hero__subtitle">
+          Restoration &amp; Demolition
+        </div>
       </div>
 
-      <div className="hero__bottom">
+      <div className="hero__bottom hero__bottom--two">
         <div className="hero__tagline">
-          Precision demolition.
+          Expert restoration.
           <br />
-          <em>Cleaner futures.</em>
+          <em>Precision demolition.</em>
         </div>
         <div className="hero__scroll">
           <div className="hero__scroll-line" />
-          <div>Scroll to bring it down</div>
-        </div>
-        <div className="hero__meta">
-          <div className="hero__meta-row">
-            <div>
-              <div className="hero__meta-val">6</div>
-              <div>Years operating</div>
-            </div>
-            <div>
-              <div className="hero__meta-val">240+</div>
-              <div>Sites cleared</div>
-            </div>
-            <div>
-              <div className="hero__meta-val">0</div>
-              <div>LTI incidents 2025</div>
-            </div>
-          </div>
+          <div>Scroll to explore</div>
         </div>
       </div>
     </header>

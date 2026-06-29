@@ -13,8 +13,8 @@ export default function Footer() {
         </div>
         <div className="footer__col">
           <h4>Contact</h4>
-          <a href="#">info@apexdemolition.com</a>
-          <a href="#">careers@apexdemolition.com</a>
+          <a href="#">info@apexrdmv.com</a>
+          <a href="#">careers@apexrdmv.com</a>
           <a href="#">+1 (703) APEX-DMV</a>
         </div>
         <div className="footer__col">
@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer__bottom">
-        <span>© 2026 Apex Demolition LLC</span>
+        <span>© 2026 Apex Restoration &amp; Demolition LLC</span>
         <span>VA #2705-178042 / DC LIC 420080 / MHIC #142008</span>
         <span>Site v3.0 — Precision is a discipline.</span>
       </div>
