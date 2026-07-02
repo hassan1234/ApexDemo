@@ -6,20 +6,20 @@ const PROJECTS = [
   {
     label: 'Kitchen Renovation',
     sublabel: 'Full demolition & luxury fit-out — Springfield, VA / 2025',
-    before: '/assets/proj-kitchen-before.jpg',
-    after: '/assets/proj-kitchen-after.jpg',
+    before: null,
+    after: null,
   },
   {
     label: 'Bathroom Overhaul',
     sublabel: 'Strip to substrate & premium tile restoration — Arlington, VA / 2024',
-    before: '/assets/proj-bathroom-before.jpg',
-    after: '/assets/proj-bathroom-after.jpg',
+    before: null,
+    after: null,
   },
   {
     label: 'Open-Plan Living Room',
     sublabel: 'Load-bearing wall removal & open-plan conversion — Washington DC / 2025',
-    before: '/assets/proj-living-before.jpg',
-    after: '/assets/proj-living-after.jpg',
+    before: null,
+    after: null,
   },
 ];
 

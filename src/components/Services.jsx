@@ -1,51 +1,51 @@
 const SERVICES = [
   {
     n: '01',
-    title: 'Structural Restoration',
+    title: 'Kitchen Restoration',
     desc:
-      'Façade retention, partial demolition and heritage preservation. Engineers and historic-preservation architects on every brief — documents every phase, archive-grade.',
-    tag: 'HERITAGE-GRADE',
+      'Full kitchen gut and rebuild. We strip everything back to bare walls and floors, then restore with premium finishes — handleless cabinetry, stone countertops, luxury tile. One contractor, start to finish.',
+    tag: 'RESTORATION',
   },
   {
     n: '02',
-    title: 'Commercial',
+    title: 'Bathroom Restoration',
     desc:
-      'Mid-rise office, retail, warehouse. We sequence around live tenants, traffic and trading hours. Crews work nights, weekends, holidays — whatever the site demands.',
-    tag: 'DC-READY',
+      "Strip to concrete, re-waterproof, and restore. Bespoke tile layouts, floating vanities, frameless glass, heated floors. We handle every trade so you don't have to.",
+    tag: 'RESTORATION',
   },
   {
     n: '03',
-    title: 'Industrial',
+    title: 'Interior Restoration',
     desc:
-      'Factories, plant rooms, federal sites. Heavy steel, contaminated substrates, high-risk lifts. Our supervisors hold every certification the job asks for.',
-    tag: 'HIGH-RISK',
+      'Heritage plasterwork, original timber, façade retention. Careful deconstruction, expert repair, and like-new reinstatement — all to preservation-grade standards.',
+    tag: 'HERITAGE-GRADE',
   },
   {
     n: '04',
-    title: 'Residential',
+    title: 'Commercial Demolition',
     desc:
-      "Single dwellings to entire blocks. Surveyors, abatement teams and county liaison rolled into one contract. Cleanest neighbour you'll have.",
-    tag: 'COUNTY-LIAISED',
+      'Mid-rise office, retail, warehouse. We sequence around live tenants, trading hours, and traffic. Crews work nights, weekends, holidays — whatever the site demands.',
+    tag: 'DC-READY',
   },
   {
     n: '05',
-    title: 'Soft-Strip',
+    title: 'Residential Demolition',
     desc:
-      'Pre-demo strip and salvage. Fixtures, fittings, copper, joinery — separated, tagged and routed to the highest-value reuse path available.',
-    tag: 'SALVAGE-FIRST',
+      'Single dwellings to entire rows. Wall removals, open-plan conversions, full knockdowns. Surveyors, abatement teams, and county liaison all under one contract.',
+    tag: 'COUNTY-LIAISED',
   },
   {
     n: '06',
-    title: 'Abatement',
+    title: 'Industrial & Hazmat',
     desc:
-      'Asbestos, lead, mold. Full enclosure builds, negative-pressure setups, air monitoring, third-party clearance. Documented from first cut to clearance certificate.',
+      'Factories, plant rooms, federal sites. Full asbestos and lead abatement with EPA documentation, negative-pressure setups, and third-party clearance certificates.',
     tag: 'EPA / OSHA',
   },
   {
     n: '07',
-    title: 'Emergency',
+    title: 'Emergency Response',
     desc:
-      'Fire, storm, structural failure. Mobilized crews on the road inside 90 minutes anywhere in the DMV.',
+      'Fire, storm, structural failure. Mobilised crews on the road inside 90 minutes anywhere in the DMV. 24 / 7, 365 days a year.',
     tag: '24 / 7',
   },
 ];
@@ -56,7 +56,9 @@ export default function Services() {
       <div className="services__inner">
         <div className="services__head">
           <div className="services__eyebrow">01 / SERVICES — WHAT WE DO</div>
-          <p className="services__lede">From careful restoration to full demolition — tailored to every client, every brief.</p>
+          <p className="services__lede">
+            From precise demolition to full luxury restoration — every scope, every scale, one team.
+          </p>
         </div>
         <div className="svc-grid">
           {SERVICES.map((s) => (
