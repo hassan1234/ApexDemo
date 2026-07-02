@@ -127,7 +127,6 @@ input, textarea { cursor: text; }
   transition: opacity 600ms;
 }
 .hero__cf-before {
-  background-image: url('/assets/hero-before.jpg');
   background-color: #1e1a17;
 }
 .hero__cf-bg--hidden { opacity: 0; pointer-events: none; }

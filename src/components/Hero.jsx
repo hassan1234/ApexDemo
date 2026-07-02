@@ -22,7 +22,7 @@ export default function Hero() {
         ref={videoRef}
         className={`hero__cf-video ${videoOk ? 'is-ready' : ''}`}
         src="/assets/hero.mp4"
-        poster="/assets/hero-before.jpg"
+        poster=""
         autoPlay
         muted
         loop
