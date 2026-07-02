@@ -79,11 +79,12 @@ export default function ContactPage() {
                 <select className="contact-pg__input contact-pg__select">
                   <option value="">Select a service</option>
                   <option>Structural Restoration</option>
+                  <option>Heritage &amp; Façade Restoration</option>
+                  <option>Disaster Restoration</option>
+                  <option>Concrete &amp; Masonry Restoration</option>
                   <option>Commercial Demolition</option>
-                  <option>Industrial Demolition</option>
                   <option>Residential Demolition</option>
                   <option>Soft-Strip &amp; Salvage</option>
-                  <option>Abatement</option>
                   <option>Emergency Response</option>
                 </select>
               </div>

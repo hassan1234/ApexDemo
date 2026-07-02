@@ -4,20 +4,20 @@ import Footer from '../components/Footer.jsx';
 
 const PROJECTS = [
   {
-    label: 'Kitchen Renovation',
-    sublabel: 'Full demolition & luxury fit-out — Springfield, VA / 2025',
+    label: 'Heritage Façade Restoration',
+    sublabel: 'Original masonry repointing & stonework reinstatement — Alexandria, VA / 2025',
     before: null,
     after: null,
   },
   {
-    label: 'Bathroom Overhaul',
-    sublabel: 'Strip to substrate & premium tile restoration — Arlington, VA / 2024',
+    label: 'Post-Storm Structural Restoration',
+    sublabel: 'Stabilisation & structural reinstatement to pre-incident condition — Arlington, VA / 2024',
     before: null,
     after: null,
   },
   {
-    label: 'Open-Plan Living Room',
-    sublabel: 'Load-bearing wall removal & open-plan conversion — Washington DC / 2025',
+    label: 'Commercial Interior Demolition',
+    sublabel: 'Full soft-strip & structural clearance — Washington DC / 2025',
     before: null,
     after: null,
   },
@@ -32,8 +32,8 @@ export default function ProjectsPage() {
           <div className="section__num" style={{ marginBottom: 12 }}>03 / SELECTED WORK</div>
           <h1 className="projects-pg__title">Our Projects</h1>
           <p className="projects-pg__lede">
-            Each project starts with careful demolition and ends with precision craftsmanship.
-            Drag the handle to compare before and after.
+            A selection of demolition and restoration projects across the DMV.
+            Drag the handle to compare site conditions before and after our work.
           </p>
         </div>
 

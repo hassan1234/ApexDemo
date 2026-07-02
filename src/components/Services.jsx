@@ -1,45 +1,45 @@
 const SERVICES = [
   {
     n: '01',
-    title: 'Kitchen Restoration',
+    title: 'Structural Restoration',
     desc:
-      'Full kitchen gut and rebuild. We strip everything back to bare walls and floors, then restore with premium finishes — handleless cabinetry, stone countertops, luxury tile. One contractor, start to finish.',
-    tag: 'RESTORATION',
+      'Repair and reinstatement of damaged structural elements — beams, columns, load-bearing walls, and foundations — back to their original structural integrity. Engineered solutions, fully documented.',
+    tag: 'STRUCTURAL',
   },
   {
     n: '02',
-    title: 'Bathroom Restoration',
+    title: 'Heritage & Façade Restoration',
     desc:
-      "Strip to concrete, re-waterproof, and restore. Bespoke tile layouts, floating vanities, frameless glass, heated floors. We handle every trade so you don't have to.",
-    tag: 'RESTORATION',
-  },
-  {
-    n: '03',
-    title: 'Interior Restoration',
-    desc:
-      'Heritage plasterwork, original timber, façade retention. Careful deconstruction, expert repair, and like-new reinstatement — all to preservation-grade standards.',
+      'Careful preservation of historic buildings. Original masonry repointing, stonework repair, period feature reinstatement, and partial demolition without disturbing retained elements. Archive-grade documentation throughout.',
     tag: 'HERITAGE-GRADE',
   },
   {
-    n: '04',
-    title: 'Commercial Demolition',
+    n: '03',
+    title: 'Disaster Restoration',
     desc:
-      'Mid-rise office, retail, warehouse. We sequence around live tenants, trading hours, and traffic. Crews work nights, weekends, holidays — whatever the site demands.',
-    tag: 'DC-READY',
+      'Storm, fire, flood — we stabilise the structure, strip the damaged material, and restore affected areas to pre-incident condition. Full insurance documentation and third-party sign-off provided.',
+    tag: 'EMERGENCY',
+  },
+  {
+    n: '04',
+    title: 'Concrete & Masonry Restoration',
+    desc:
+      'Spalled concrete repair, carbonation treatment, crack injection, and anti-corrosion coating. Bridges, car parks, commercial slabs, and retaining walls restored to original specification.',
+    tag: 'STRUCTURAL',
   },
   {
     n: '05',
-    title: 'Residential Demolition',
+    title: 'Commercial Demolition',
     desc:
-      'Single dwellings to entire rows. Wall removals, open-plan conversions, full knockdowns. Surveyors, abatement teams, and county liaison all under one contract.',
-    tag: 'COUNTY-LIAISED',
+      'Mid-rise office, retail, warehouse. We sequence around live tenants, traffic, and trading hours. Crews work nights, weekends, holidays — whatever the site demands.',
+    tag: 'DC-READY',
   },
   {
     n: '06',
-    title: 'Industrial & Hazmat',
+    title: 'Residential Demolition',
     desc:
-      'Factories, plant rooms, federal sites. Full asbestos and lead abatement with EPA documentation, negative-pressure setups, and third-party clearance certificates.',
-    tag: 'EPA / OSHA',
+      'Single dwellings to entire rows. Wall removals, full knockdowns, abatement. Surveyors, county liaison, and waste planning all under one contract.',
+    tag: 'COUNTY-LIAISED',
   },
   {
     n: '07',
@@ -57,7 +57,7 @@ export default function Services() {
         <div className="services__head">
           <div className="services__eyebrow">01 / SERVICES — WHAT WE DO</div>
           <p className="services__lede">
-            From precise demolition to full luxury restoration — every scope, every scale, one team.
+            Precise demolition and expert structural restoration — returning buildings to their original integrity, or clearing the site for what comes next.
           </p>
         </div>
         <div className="svc-grid">
