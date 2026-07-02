@@ -20,6 +20,11 @@ export default function Nav() {
     return () => window.removeEventListener('resize', measure);
   }, []);
 
+  // Reset active when leaving home page
+  useEffect(() => {
+    if (location.pathname !== '/') setActive('top');
+  }, [location.pathname]);
+
   // Only track anchor sections on the home page
   useEffect(() => {
     if (location.pathname !== '/') return;
